@@ -1,0 +1,20 @@
+<% if @entry.errors.any? %>
+  <p>See errors below:</p>
+  <% @entry.errors.full_messages.each do |error_message| %>
+    <p>Error: <%= error_message %></p>
+  <% end %>
+<% end %>
+
+<form action="/entries" method="post">
+
+  <label for="">Title</label>
+  <input type="text" name="entry[title]" value="<%= @entry.title %>">
+
+  <label for="">Body</label>
+  <input type="text" name="entry[body]" value="<%= @entry.body %>">
+
+  <label for="">Tags</label>
+  <input type="text" name="tags">
+
+  <input type="submit" value="Create Entry">
+</form>
